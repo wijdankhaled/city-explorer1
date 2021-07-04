@@ -68,3 +68,40 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Project Name : city-explorer
+
+**Author**: wijdan khaled
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+
+## Overview
+this pproject prind a data by doing a request to api and using it in react app 
+the data is about regoin and maps for it 
+## Getting Started
+1. creat arect app
+2. creat an empty repo and link it with the react app that you created 
+3. install the libraries that you need and import in your app.js
+4. strating your code and npm start to see your result in the prowser 
+5. do the acp and deploy the repo in netlify
+
+## Architecture
+
+using these  libraries react ,bootstarp ,dotenv,axios
+
+## Change Log
+
+04-07-2021 8:15pm -Application now has a fully-functional express server, with a GET route for the location resource
+
+Name of feature: ___Asynchronous code, and APIs ,_Lab: Class 06____________________________
+
+Estimate of time needed to complete: _5h____
+
+Start time: ___3:00pm__
+
+Finish time: ___8:15pm__
+
+Actual time needed to complete: __3h___
+
+#### netlify link
+[netlify](city-explorer-wijdan.netlify.app)
