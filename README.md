@@ -104,4 +104,4 @@ Finish time: ___8:15pm__
 Actual time needed to complete: __3h___
 
 #### netlify link
-[netlify](city-explorer-wijdan.netlify.app)
+[netlify](https://city-explorer-wijdan.netlify.app/)
