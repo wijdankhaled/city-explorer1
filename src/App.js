@@ -44,16 +44,27 @@ class App extends React.Component {
   }
     //http://localhost:3001/weather?cityName=Amman&lon=35.91&lat=31.95
     let weatherurl = `${process.env.REACT_APP_P0RT}/weather?cityName=${this.state.searchQ}`
+
+    // 
     let weatherR = await axios.get(weatherurl)
     console.log(this.state.weatherR)
     this.setState({
       weatherData: weatherR.data
     })
     console.log('aaaaaaaaaaaaaaa',this.state.weatherData);
+
+//http://localhost:3001/movie?cityName=Amman
+let moviewUrl=`${process.env.REACT_APP_P0RT}/weather?cityName=${this.state.searchQ}`
+let movies=await axios.get(moviewUrl)
+console.log(this.state.movies)
+this.setState({
+  movieData:movies
+})
+console.log(this.state.movieData)
   }
 
 
-  // 
+  
   render() {
 
     return (
@@ -92,6 +103,19 @@ class App extends React.Component {
                 <Weather
                   weatherInfo={val}
                 />
+              )
+            })
+          }
+        </tr>
+        <tr>
+          {
+            this.state.movieData.map((val) => {
+              return (
+               
+                <Movie/>
+
+              
+                
               )
             })
           }
