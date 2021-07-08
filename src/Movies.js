@@ -1,48 +1,79 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import ListGroup from 'react-bootstrap/ListGroup'
+
 class Movies extends React.Component{
     render(){
+      console.log(this.props.result);
         return(
-            <>
-            {/* <ul>
-                <li>
-                    {this.props.weatherInfo.description}
-                </li>
-                <li>
-                {this.props.weatherInfo.data}
-                </li>
-            </ul> */}
+         <>
+           <div>Movies</div>
+           { 
 
-{/* this.title=item.title;
-        this.overview=item.overview;
-        this.average_votes=item.vote_average;
-        this.image_url=`https://image.tmdb.org/t/p/w500/${item.poster_path}`;
-        this.total_votes=item.vote_count;
-        this.image_url=item.image_url;
-        this.popularity=item.popularity;
-        this.released_on=item.release_date; */}
+             this.props.result.map(val=>{
+               return(
+   
+              // <div>
+              //  {/* <imag alt="" src={val.image_url}/> */}
+              // <p>{val.overview}</p>
+              //     <p>{val.average_votes}</p>
+              //     <p>{val.total_votes}</p>
+              //     <p>{val.popularity}</p>
+              //     <p>{val.released_on}</p>
+              //     </div>
 
-<Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+//               <Card style={{ width: '18rem' }}>
+//   <Card.Img alt="" src={val.image_url} />
+//   <Card.Body>
+//     <Card.Title>{val.title}</Card.Title>
+//     <Card.Text>
+//      {/* {val.overview} */}
+    
+//     </Card.Text>
+//     <Card.Text>
+//      {val.total_votes}
+//     </Card.Text>
+//     <Card.Text>
+//      {val.popularity}
+//     </Card.Text>
+//     {/* <Button variant="primary">Go somewhere</Button> */}
+//   </Card.Body>
+// </Card>
+
+<Card className="displaycard" style={{ width: '18rem' }}>
+ 
+ 
   <Card.Body>
-    <Card.Title>Card Title</Card.Title>
+  <img variant="top" alt="" src={val.image_url} style={{ width: '15rem' }}/>
+    <Card.Title>{val.title}</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+    {val.overview} 
+    </Card.Text>
+    <Card.Text>
+    {val.total_votes}
+    </Card.Text>
+    <Card.Text>
+    {val.popularity}
+    </Card.Text>
+    <Card.Text>
+    {val.released_on}
     </Card.Text>
   </Card.Body>
-  <ListGroup className="list-group-flush">
-    <ListGroupItem>{this.props.overview}</ListGroupItem>
-    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-  </ListGroup>
-  <Card.Body>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
-  </Card.Body>
 </Card>
-            </>
+
+
+               )
+             })
+          
+           }
+         </>
         )
     }
 }
 export default Movies;
+
+
+
+
+      
