@@ -59,6 +59,7 @@ class App extends React.Component {
 //http://localhost:3002/movies?cityName=Amman
 
 let moviewUrl=`${process.env.REACT_APP_P0RT}/movies?cityName=${this.state.searchQ}`
+// let moviewUrl='https://city-explorer-api-wijdan.herokuapp.com/'
 let allmovies=await axios.get(moviewUrl)
 
 
@@ -126,7 +127,7 @@ console.log(this.state.movieData)
               {/* <p>City Name:{this.state.cityData.display_name},{this.state.cityData.lat},{this.state.cityData.lon}</p> */}
               {this.state.showMap &&
                 <img alt='' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_lOCATION_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=15`} 
-                style={{ width: '30rem' }}/>
+                style={{ width: '306+rem' }}/>
               }
             </tr>
            
