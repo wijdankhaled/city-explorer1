@@ -5,6 +5,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Weather from './Weather'
+import Movies from './Movies'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,8 +14,10 @@ class App extends React.Component {
       cityData: {},
       searchQ: '',
       showMap: false,
+      showmovie:false,
       errorMessage: false,
-      weatherData: []
+      weatherData: [],
+      movieData:[]
     }
   }
   getLocation = async (event) => {
@@ -42,7 +45,7 @@ class App extends React.Component {
     })
 
   }
-    //http://localhost:3001/weather?cityName=Amman&lon=35.91&lat=31.95
+    //http://localhost:3002/weather?cityName=Amman&lon=35.91&lat=31.95
     let weatherurl = `${process.env.REACT_APP_P0RT}/weather?cityName=${this.state.searchQ}`
 
     // 
@@ -53,12 +56,17 @@ class App extends React.Component {
     })
     console.log('aaaaaaaaaaaaaaa',this.state.weatherData);
 
-//http://localhost:3001/movie?cityName=Amman
-let moviewUrl=`${process.env.REACT_APP_P0RT}/weather?cityName=${this.state.searchQ}`
-let movies=await axios.get(moviewUrl)
-console.log(this.state.movies)
-this.setState({
-  movieData:movies
+//http://localhost:3002/movies?cityName=Amman
+
+let moviewUrl=`${process.env.REACT_APP_P0RT}/movies?cityName=${this.state.searchQ}`
+let allmovies=await axios.get(moviewUrl)
+
+
+console.log(this.state.allmovies)
+await this.setState({
+  movieData:allmovies.data,
+  showmovie:true
+ 
 })
 console.log(this.state.movieData)
   }
@@ -98,9 +106,11 @@ console.log(this.state.movieData)
             </tr>
             <tr>
           {
-            this.state.weatherData.map((val) => {
+            this.state.weatherData.map((val,index) => {
               return (
+              
                 <Weather
+
                   weatherInfo={val}
                 />
               )
@@ -108,22 +118,15 @@ console.log(this.state.movieData)
           }
         </tr>
         <tr>
-          {
-            this.state.movieData.map((val) => {
-              return (
-               
-                <Movie/>
-
-              
-                
-              )
-            })
-          }
+          
+       
+          
         </tr>
             <tr>
               {/* <p>City Name:{this.state.cityData.display_name},{this.state.cityData.lat},{this.state.cityData.lon}</p> */}
               {this.state.showMap &&
-                <img alt='' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_lOCATION_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=15`} />
+                <img alt='' src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_lOCATION_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=15`} 
+                style={{ width: '30rem' }}/>
               }
             </tr>
            
@@ -137,7 +140,18 @@ console.log(this.state.movieData)
 
        {this.state.errorMessage&&<div style={{color:'orange'}}>Error in getting the data</div>}
       
+
+       
+       {this.state.showmovie &&
+        <Movies
+       result={this.state.movieData} 
+        
+       />
+        }  
+       
+   
       </div>
+      
     )
 
   }
