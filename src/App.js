@@ -4,8 +4,9 @@ import Button from 'react-bootstrap/Button';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import Weather from './Weather'
-import Movies from './Movies'
+import Weather from './component/Weather'
+import Movies from './component/Movies'
+import AllMovies from './component/AllMovies';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -106,7 +107,7 @@ console.log(this.state.movieData)
               <td>{this.state.cityData.lon}</td>
             </tr>
             <tr>
-          {
+          {/* {
             this.state.weatherData.map((val,index) => {
               return (
               
@@ -116,6 +117,14 @@ console.log(this.state.movieData)
                 />
               )
             })
+          } */
+          
+          <Weather
+          
+          weatherData={this.state.weatherData}
+          
+          />
+          
           }
         </tr>
         <tr>
@@ -143,12 +152,18 @@ console.log(this.state.movieData)
       
 
        
-       {this.state.showmovie &&
+       {/* {this.state.showmovie &&
         <Movies
        result={this.state.movieData} 
         
        />
-        }  
+        }   */
+        
+        <AllMovies
+        movieData={this.state.movieData}
+          />
+        
+        }
        
    
       </div>
